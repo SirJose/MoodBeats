@@ -1,3 +1,5 @@
 archive.zip
 # data/
-#data/archive.zip
+# data/*.zip
+# data/tweet_emotions.csv.zip
+# data/tweet_emotions.csv.zip
