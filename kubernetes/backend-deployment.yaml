@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: diegobran16/backend-app
+          image: diegobran16/backend-app:v1.0
           ports:
             - containerPort: 9443
 ---
@@ -29,4 +29,5 @@ spec:
     - protocol: TCP
       port: 9443
       targetPort: 9443
-  type: ClusterIP
+      nodePort: 30001
+  type: NodePort

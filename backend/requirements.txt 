@@ -1,9 +1,0 @@
-flask
-joblib
-transformers
-deep_translator
-pandas
-torch
-spotipy
-scikit-learn
-pyyaml

@@ -10,6 +10,7 @@ import re
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 import yaml
+import mlflow
 
 # Inicializar la aplicación Flask
 app = Flask(__name__)
@@ -35,7 +36,7 @@ emotion_pipeline = pipeline("text-classification", model="j-hartmann/emotion-eng
 translator = GoogleTranslator(source='es', target='en')
 tokenizer = DistilBertTokenizer.from_pretrained('distilbert-base-uncased')
 bert_model = DistilBertModel.from_pretrained('distilbert-base-uncased')
-playlist_model = joblib.load('models/playlist-model/playlist-model.joblib')
+playlist_model = joblib.load('models/playlist-model/playlist_model.joblib')
 classifier = joblib.load('models/sentiment_model/mood_model.joblib')
 label_encoder = joblib.load('models/playlist-model/label_encoder.joblib')
 scaler = joblib.load('models/playlist-model/scaler.joblib')

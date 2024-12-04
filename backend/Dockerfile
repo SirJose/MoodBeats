@@ -7,19 +7,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libffi-dev \
     && rm -rf /var/lib/apt/lists/*
 
+
 # Crear directorio de trabajo
 WORKDIR /app
 
-
 # Instalar dependencias desde requirements.txt
 RUN pip install --no-cache-dir flask transformers torch \
-        deep-translator joblib pandas spotipy pyyaml flask-cors
+        deep-translator joblib pandas spotipy pyyaml flask-cors mlflow
 
-COPY . /app
-
-# **Copiar los modelos al contenedor**
-COPY models /app/models
-
+COPY . .
 
 # Exponer puerto de Flask
 EXPOSE 9443
