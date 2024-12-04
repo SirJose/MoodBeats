@@ -57,7 +57,10 @@ spotify:
   redirect_uri: "http://localhost:9443/callback"
   scope: "playlist-modify-public"
  ```
-### Mapeo de ruta a el archivo spotify-auth.yaml:
+### Uso de la API de spotify:
+Ejecute el notebook **login-token.ipnyb** para generar el token de autenticación 
+
+### Mapeo de ruta a el archivo spotify-auth.yaml y token.json:
 Debe colocar la ruta absoluta de el archivo spotify-auth.yaml en el espacio corresponidente del
 archivo de configuración del backend de kubernetes
  ```yaml
@@ -66,6 +69,10 @@ archivo de configuración del backend de kubernetes
            hostPath: # Cambiar según tus necesidades
               path: /tu/path/aqui/spotify-auth.yaml
               type: File
+         - name: tokens-volume
+           hostPath:
+               path: /tu/path/aqui/MoodBeats/tokens.json
+               type: File
 
  ```
 

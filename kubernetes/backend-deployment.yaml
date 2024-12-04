@@ -14,17 +14,31 @@ spec:
     spec:
       containers:
         - name: backend
-          image: diegobran16/backend-app:v2.0
+          image: diegobran16/backend-app:v12.0
           ports:
             - containerPort: 9443
           volumeMounts:
             - name: spotify-auth-volume
               mountPath: /app/spotify-auth.yaml # Ruta en el contenedor
+            - name: tokens-volume
+              mountPath: /app/tokens.json # Ruta en el contenedor
       volumes:
         - name: spotify-auth-volume
           hostPath: # Cambiar según tus necesidades
             path: /Users/diegobran/Documents/Galileo/MsC DataScience/Cuarto Trimestre/ProductDevelopment/MoodBeats/backend/spotify-auth.yaml
             type: File
+        - name: tokens-volume
+          hostPath:
+            path: /Users/diegobran/Documents/Galileo/MsC DataScience/Cuarto Trimestre/ProductDevelopment/MoodBeats/tokens.json
+            type: File
+      dnsPolicy: "None" # Permite usar configuración DNS personalizada
+      dnsConfig:
+        nameservers:
+          - 8.8.8.8   # DNS primario de Google
+          - 8.8.4.4   # DNS secundario de Google
+        searches:
+          - default.svc.cluster.local
+          - backend.svc.cluster.local
 
 ---
 apiVersion: v1

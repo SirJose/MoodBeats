@@ -8,7 +8,7 @@ const App = () => {
 
   const handleAnalyzeEmotion = async ({ text, model }) => {
     try {
-      const response = await fetch("http://backend-service:9443/analyze_emotion", {
+      const response = await fetch("http://localhost:30001/analyze_emotion", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text, model }),
@@ -18,7 +18,7 @@ const App = () => {
 
       // Obtener canciones para la emoción detectada
       const playlistResponse = await fetch(
-        "http://backend-service:9443/create_spotify_playlist",
+        "http://localhost:30001/create_spotify_playlist",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
