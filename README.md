@@ -42,7 +42,16 @@ git clone https://github.com/SirJose/MoodBeats
 cd MoodBeats
 ```
 
-### Construir las imágenes:
+### Construir las imágenes (OPCIONAL):
+Si eliges compilar tus propiras imagenes debes hacer un push hacia docker hub y podteriormente editar los archivos de deployment
+de kubernetes ubicados en la carpeta "kubernetes" del proyecto. A continuación un ejemolo del 
+parametro a modificar dentro del spec.
+```yaml
+    spec:
+      containers:
+        - name: backend
+          image: <nombre de tu imagen en dockerhub>
+```
  ```bash
  docker build -t backend-app ./backend
  docker build -t frontend-app ./frontend
