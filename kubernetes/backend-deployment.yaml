@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: diegobran16/backend-app:v1.0
+          image: diegobran16/backend-app:v2.0
           ports:
             - containerPort: 9443
           volumeMounts:

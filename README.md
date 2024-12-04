@@ -57,6 +57,17 @@ spotify:
   redirect_uri: "http://localhost:9443/callback"
   scope: "playlist-modify-public"
  ```
+### Mapeo de ruta a el archivo spotify-auth.yaml:
+Debe colocar la ruta absoluta de el archivo spotify-auth.yaml en el espacio corresponidente del
+archivo de configuración del backend de kubernetes
+ ```yaml
+      volumes:
+         - name: spotify-auth-volume
+           hostPath: # Cambiar según tus necesidades
+              path: /tu/path/aqui/spotify-auth.yaml
+              type: File
+
+ ```
 
 ### Aplicar las configuraciones:
 Situese bajo la carpeta MoodBeats pero por encima ed Kubernetes y ejecute los siguientes comandos las imagenes

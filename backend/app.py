@@ -36,11 +36,11 @@ emotion_pipeline = pipeline("text-classification", model="j-hartmann/emotion-eng
 translator = GoogleTranslator(source='es', target='en')
 tokenizer = DistilBertTokenizer.from_pretrained('distilbert-base-uncased')
 bert_model = DistilBertModel.from_pretrained('distilbert-base-uncased')
-playlist_model = joblib.load('models/playlist-model/playlist_model.joblib')
-classifier = joblib.load('models/sentiment_model/mood_model.joblib')
-label_encoder = joblib.load('models/playlist-model/label_encoder.joblib')
-scaler = joblib.load('models/playlist-model/scaler.joblib')
-songs_library = pd.read_csv('data/songs_library.csv')
+playlist_model = joblib.load('/app/models/playlist-model/playlist_model.joblib')
+classifier = joblib.load('/app/models/sentiment_model/mood_model.joblib')
+label_encoder = joblib.load('/app/models/playlist-model/label_encoder.joblib')
+scaler = joblib.load('/app/models/playlist-model/scaler.joblib')
+songs_library = pd.read_csv('/app/data/songs_library.csv')
 
 # Procesar la librería de canciones
 numerical_features = ['popularity', 'danceability', 'energy', 'valence']
