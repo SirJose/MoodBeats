@@ -5,3 +5,4 @@ archive.zip
 # data/tweet_emotions.csv.zip
 backend/spotify-auth.yaml
 backend/tokens.json
+frontend/node_modules
