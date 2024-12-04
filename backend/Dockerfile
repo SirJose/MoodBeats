@@ -15,7 +15,9 @@ WORKDIR /app
 RUN pip install --no-cache-dir flask transformers torch \
         deep-translator joblib pandas spotipy pyyaml flask-cors mlflow
 
-COPY . .
+COPY models /app
+COPY data /app
+COPY app.py /app
 
 # Exponer puerto de Flask
 EXPOSE 9443

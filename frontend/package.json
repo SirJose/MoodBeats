@@ -21,7 +21,6 @@
   "devDependencies": {
     "react-scripts": "^5.0.1"
   },
-  "description": "",
   "browserslist": {
     "production": [
       ">0.2%",
@@ -33,5 +32,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": ""
 }

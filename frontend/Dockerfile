@@ -2,8 +2,7 @@
 FROM node:16 AS build
 
 # Configura el directorio de trabajo dentro del contenedor
-WORKDIR /app
-
+WORKDIR /home
 # Copia los archivos de configuración de npm
 COPY package.json package-lock.json ./
 
@@ -24,7 +23,7 @@ RUN npm install --save react-scripts
 FROM nginx:alpine
 
 # Copia los archivos construidos al servidor nginx
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /home/build /usr/share/nginx/html
 
 # Exponer el puerto 80
 EXPOSE 80
