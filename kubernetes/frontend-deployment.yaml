@@ -15,7 +15,6 @@ spec:
       containers:
         - name: frontend
           image: diegobran16/frontend-app:v2.0
-          imagePullPolicy: Always
           ports:
             - containerPort: 80
 ---

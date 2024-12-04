@@ -32,6 +32,7 @@ MoodBeats es un proyecto que combina la detección de emociones con la generaci�
 - Node.js >= 14
 - Docker
 - Kubernetes
+- No tener ocupados los puertos 30000 y 30001 de las redes de TKGs
 
 ## Instalación
 
@@ -46,20 +47,32 @@ cd MoodBeats
  docker build -t backend-app ./backend
  docker build -t frontend-app ./frontend
  ```
-
-### Ejecutar los contenedores:
- ```bash
- docker run -d -p 9443:9443 backend-app
- docker run -d -p 80:80 frontend-app
+### Uso de la API de spotify:
+Debera de crear un archivo denominado **spotify-auth.yaml** dentro de la carpeta backend 
+y popular los cmapos client_id y client_secret. Para obtenerlos consulta la documentación de spotify https://developer.spotify.com/
+ ```yaml
+spotify:
+  client_id: "TU_CLIENT_ID"
+  client_secret: "TU_CLIENT_SECRET"
+  redirect_uri: "http://localhost:9443/callback"
+  scope: "playlist-modify-public"
  ```
 
 ### Aplicar las configuraciones:
+Situese bajo la carpeta MoodBeats pero por encima ed Kubernetes y ejecute los siguientes comandos las imagenes
+se descargaran automaticamente de dockerhub
 ```bash
 kubectl apply -f kubernetes/backend-deployment.yaml
 kubectl apply -f kubernetes/frontend-deployment.yaml
 ```
+### Monitoreo de los PODs:
+Utilice los siguientes comandos para moniotrear la salud de los servicios
 
+```bash
+kubectl get pods
+kubectl get services
+```
 
 ## Ejecución
 
-- Ingresar `localhost:80` en el navegador para acceder a la app.
+- Ingresar `localhost:30000` en el navegador para acceder a la app.

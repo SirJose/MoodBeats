@@ -15,17 +15,17 @@ spec:
       containers:
         - name: backend
           image: diegobran16/backend-app:v1.0
-          imagePullPolicy: Always
           ports:
             - containerPort: 9443
           volumeMounts:
             - name: spotify-auth-volume
               mountPath: /app/spotify-auth.yaml # Ruta en el contenedor
-              subPath: spotify-auth.yaml
       volumes:
         - name: spotify-auth-volume
-          secret:
-            secretName: spotify-auth-secret # Nombre del secreto que contiene el archivo
+          hostPath: # Cambiar según tus necesidades
+            path: /Users/diegobran/Documents/Galileo/MsC DataScience/Cuarto Trimestre/ProductDevelopment/MoodBeats/backend/spotify-auth.yaml
+            type: File
+
 ---
 apiVersion: v1
 kind: Service

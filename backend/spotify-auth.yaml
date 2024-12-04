@@ -1,5 +1,5 @@
 spotify:
   client_id: "c15dae568e384c639214780a32252f2a"
-  client_secret: "tu_client_secret"
+  client_secret: "a05c91e95775407e8a18d34d76b0e73f"
   redirect_uri: "http://localhost:9443/callback"
   scope: "playlist-modify-public"
