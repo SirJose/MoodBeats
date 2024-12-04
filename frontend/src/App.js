@@ -25,8 +25,14 @@ const App = () => {
           body: JSON.stringify({ emotion: data.emotion }),
         }
       );
+
       const playlistData = await playlistResponse.json();
-      setSongs(playlistData);
+
+      if (playlistData.songs) {
+        setSongs(playlistData.songs); // Actualizar el estado con las canciones
+      } else {
+        setSongs([]); // Asegurarse de limpiar el estado si no hay canciones
+      }
     } catch (error) {
       console.error("Error:", error);
     }

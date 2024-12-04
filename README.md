@@ -49,15 +49,16 @@ cd MoodBeats
  ```
 ### Uso de la API de spotify:
 Debera de crear un archivo denominado **spotify-auth.yaml** dentro de la carpeta backend 
-y popular los cmapos client_id y client_secret. Para obtenerlos consulta la documentación de spotify https://developer.spotify.com/
+y popular los cmapos client_id y client_secret. Para obtenerlos consulta la documentación de spotify https://developer.spotify.com/. 
+Dentro del portal de spotify developers asegurate de colocar **http://localhost:30001/callback** como redirect uri en la aplicación que creaste en el portal
  ```yaml
 spotify:
   client_id: "TU_CLIENT_ID"
   client_secret: "TU_CLIENT_SECRET"
-  redirect_uri: "http://localhost:9443/callback"
+  redirect_uri: "http://localhost:30001/callback"
   scope: "playlist-modify-public"
  ```
-### Uso de la API de spotify:
+### Token de autenticación:
 Ejecute el notebook **login-token.ipnyb** para generar el token de autenticación 
 
 ### Mapeo de ruta a el archivo spotify-auth.yaml y token.json:
@@ -83,6 +84,14 @@ se descargaran automaticamente de dockerhub
 kubectl apply -f kubernetes/backend-deployment.yaml
 kubectl apply -f kubernetes/frontend-deployment.yaml
 ```
+
+si por alguna razón no se inicia la descarga de las imagenes de docker puede iniciarlas manualmente con: 
+
+```bash
+docker pull diegobran16/frontend-app:v5.0   
+docker pull  diegobran16/backend-app:v13.0   
+```
+
 ### Monitoreo de los PODs:
 Utilice los siguientes comandos para moniotrear la salud de los servicios
 
